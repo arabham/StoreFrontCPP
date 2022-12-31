@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Components/StaticMeshComponent.h"
 #include "Components/SceneComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "UObject/Class.h"
 #include "UObject/Object.h"
 #include <StoreFrontCPP/E_ItemName.h>
