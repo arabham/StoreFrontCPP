@@ -2,6 +2,8 @@
 
 
 #include "Store.h"
+#include "InGameHUD.h"
+
 
 // Sets default values
 AStore::AStore()
@@ -11,6 +13,8 @@ AStore::AStore()
 
 	Root = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 	RootComponent = Root;
+
+	ItemCount = 0;
 
 }
 
@@ -28,3 +32,28 @@ void AStore::Tick(float DeltaTime)
 
 }
 
+void AStore::BuyItemFromStoreStoreInventory(int32 IWholePrice)
+{
+	if (IWholePrice < Marks)
+	{
+		Marks = Marks - IWholePrice;
+	}
+	else
+		UE_LOG(LogTemp, Warning, TEXT("CAN'T AFFORD ITEM!"))
+}
+
+void AStore::AddItemStoreInventory(AItem* ItemToAdd)
+{
+	AInGameHUD* InGameHUD = Cast<AInGameHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+	if (InGameHUD)
+	{
+		ItemCount += 1;
+		InGameHUD->UpdateItemCount(ItemCount);
+		StoreInventory.Add(ItemToAdd);
+	}
+}
+
+void AStore::StockItem(AItem* ItemToStock)
+{
+	StockedItems.Add(ItemToStock);
+}

@@ -31,7 +31,6 @@ void AMyPlayerController::SetupInputComponent()
 	{
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMyPlayerController::Move);
 		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &AMyPlayerController::Interact);
-		EnhancedInputComponent->BindAction(PickupDropAction, ETriggerEvent::Triggered, this, &AMyPlayerController::PickupDrop);
 	}
 }
 
@@ -64,8 +63,4 @@ void AMyPlayerController::Move(const FInputActionValue& Value)
 void AMyPlayerController::Interact(const FInputActionValue& Value)
 {
 
-}
-
-void AMyPlayerController::PickupDrop(const FInputActionValue& Value)
-{
 }

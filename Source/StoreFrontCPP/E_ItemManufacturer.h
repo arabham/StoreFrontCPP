@@ -11,15 +11,6 @@ UENUM(BlueprintType)
 enum class E_ItemManufacturer : uint8
 {
 	DefaultManufacturer,
-	Mars,
-	Hormel,
-	Pepsi,
-	GE,
-	HamiltonBeach,
-	Cuisinart,
-	MelissaandDoug,
-	MobGames,
-	StudioMDHR,
 	E_ItemManufacturer_Max UMETA(Hidden),
 };
 

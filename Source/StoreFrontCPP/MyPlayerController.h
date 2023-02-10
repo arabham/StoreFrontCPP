@@ -29,22 +29,17 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Input)
 	UInputMappingContext* MyDefaultMappingContext;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Input)
 	UInputAction* MoveAction;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Input)
 	UInputAction* InteractAction;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
-	UInputAction* PickupDropAction;
 
 	void Move(const FInputActionValue& Value);
 
 	void Interact(const FInputActionValue& Value);
-
-	void PickupDrop(const FInputActionValue& Value);
 
 };

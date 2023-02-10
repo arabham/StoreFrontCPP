@@ -18,29 +18,35 @@ struct FS_ItemInfo : public FTableRowBase
 
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Class", MakeStructureDefaultValue = "None"))
-	TObjectPtr<UClass> Class;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Class", MakeStructureDefaultValue = "None"))
+	//TObjectPtr<UClass> Class;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Index", MakeStructureDefaultValue = "0"))
-	int32 Index;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Index", MakeStructureDefaultValue = "0"))
+	//int32 Index;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Name"))
-	FText Name;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Name"))
+	//FText Name;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "ItemName", MakeStructureDefaultValue = "NewEnumerator0"))
 	E_ItemName ItemName;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Manufacturer", MakeStructureDefaultValue = "NewEnumerator0"))
-	E_ItemManufacturer Manufacturer;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Manufacturer", MakeStructureDefaultValue = "NewEnumerator0"))
+	//E_ItemManufacturer Manufacturer;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Type", MakeStructureDefaultValue = "NewEnumerator0"))
-	E_ItemType ItemType;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Type", MakeStructureDefaultValue = "NewEnumerator0"))
+	//E_ItemType ItemType;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Price", MakeStructureDefaultValue = "0.000000"))
-	double Price;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Price", MakeStructureDefaultValue = "2"))
+	int32 Price;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Wholesale Price", MakeStructureDefaultValue = "1"))
+	int32 WholesalePrice;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Image", MakeStructureDefaultValue = "None"))
 	TObjectPtr<UTexture2D> Image;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Count", MakeStructureDefaultValue = "0"))
+	int32 Count;
 };
 
 

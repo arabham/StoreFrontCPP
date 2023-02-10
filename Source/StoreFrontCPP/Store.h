@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/SceneComponent.h"
+#include "Item.h"
 #include "Store.generated.h"
 
 UCLASS(Blueprintable, BlueprintType)
@@ -20,13 +21,25 @@ public:
 	TObjectPtr<USceneComponent> Root;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
-	TArray<AActor*> Sections;
+	TArray<AItem*> StoreInventory;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
-	TArray<AActor*> StockedItems;
+	TArray<AItem*> StockedItems;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
-	TArray<AActor*> UnstockedItems;
+	TArray<AActor*> StoreStoreInventory;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
+	TArray<AActor*> LockedItems;
+
+	// TODO: Remove need for blueprint access to make this unsigned
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
+	int32 Level;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
+	int32 Marks;
+
+	int32 ItemCount;
 
 
 protected:
@@ -36,5 +49,14 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable)
+	void BuyItemFromStoreStoreInventory(int32 IWholePrice);
+
+	UFUNCTION(BlueprintCallable)
+	void AddItemStoreInventory(AItem* ItemToAdd);
+
+	UFUNCTION(BlueprintCallable)
+	void StockItem(AItem* ItemToStock);
 
 };

@@ -11,15 +11,9 @@ UENUM(BlueprintType)
 enum class E_ItemName : uint8
 {
 	DefaultName,
-	Snickers,
-	Spam,
-	MountainDew,
-	Microwave,
-	Blender,
-	Toaster,
-	Maze,
-	Plush,
-	Robot,
+	Candy,
+	Nuts,
+	Chips,
 	E_ItemName_Max UMETA(Hidden),
 };
 
