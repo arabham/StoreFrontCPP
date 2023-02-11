@@ -15,14 +15,13 @@ AStore::AStore()
 	RootComponent = Root;
 
 	ItemCount = 0;
-
+	StockCount = 0;
 }
 
 // Called when the game starts or when spawned
 void AStore::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -32,17 +31,22 @@ void AStore::Tick(float DeltaTime)
 
 }
 
-void AStore::BuyItemFromStoreStoreInventory(int32 IWholePrice)
+void AStore::BuyItemFromStoreStoreInventory(FS_ItemInfo ItemToBuy)
 {
-	if (IWholePrice < Marks)
+	int32 WholePrice = ItemToBuy.WholesalePrice;
+	if (Marks >= WholePrice)
 	{
-		Marks = Marks - IWholePrice;
+		UE_LOG(LogTemp, Warning, TEXT("Marks = %d"), Marks)
+		UE_LOG(LogTemp, Warning, TEXT("WholePrice = %d"), WholePrice)
+		UE_LOG(LogTemp, Warning, TEXT("ITEM BOUGHT!"))
+		Marks = Marks - WholePrice;
+		AddItemStoreInventory(ItemToBuy);
 	}
 	else
 		UE_LOG(LogTemp, Warning, TEXT("CAN'T AFFORD ITEM!"))
 }
 
-void AStore::AddItemStoreInventory(AItem* ItemToAdd)
+void AStore::AddItemStoreInventory(FS_ItemInfo ItemToAdd)
 {
 	AInGameHUD* InGameHUD = Cast<AInGameHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
 	if (InGameHUD)
@@ -53,7 +57,16 @@ void AStore::AddItemStoreInventory(AItem* ItemToAdd)
 	}
 }
 
-void AStore::StockItem(AItem* ItemToStock)
+void AStore::StockItem(FS_ItemInfo ItemToStock)
 {
-	StockedItems.Add(ItemToStock);
+	AInGameHUD* InGameHUD = Cast<AInGameHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+	if (InGameHUD && ItemCount > StockCount)
+	{
+		StockCount += 1;
+		InGameHUD->UpdateItemStock(StockCount);
+		StockedItems.Add(ItemToStock);
+		UE_LOG(LogTemp, Warning, TEXT("ITEM STOCKED!"))
+	}
+	else
+		UE_LOG(LogTemp, Warning, TEXT("NO ITEM TO STOCK!"))
 }

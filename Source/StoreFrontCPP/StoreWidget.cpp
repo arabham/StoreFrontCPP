@@ -33,7 +33,19 @@ void UStoreWidget::UpdateItemCount(int32 Value)
 		{
 			ItemCountText->SetVisibility(ESlateVisibility::Visible);
 		}
-		ItemCountText->SetText(FText::FromString(FString::FromInt(Value)));
+		ItemCountText->SetText(FText::FromString("Owned: " + FString::FromInt(Value)));
+	}
+}
+
+void UStoreWidget::UpdateItemStock(int32 Value)
+{
+	if (ItemStockedText)
+	{
+		if (ItemStockedText->Visibility == ESlateVisibility::Hidden)
+		{
+			ItemStockedText->SetVisibility(ESlateVisibility::Visible);
+		}
+		ItemStockedText->SetText(FText::FromString("Stocked: " + FString::FromInt(Value)));
 	}
 }
 

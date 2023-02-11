@@ -32,8 +32,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Info")
 	FS_ItemInfo ItemInfo;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Info")
-	E_ItemName ItemName;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Info")
+	//E_ItemName ItemName;
 
 protected:
 	// Called when the game starts or when spawned

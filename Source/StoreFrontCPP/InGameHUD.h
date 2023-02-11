@@ -27,6 +27,9 @@ public:
 
 	UFUNCTION()
 	void UpdateItemCount(int32 Value);
+
+	UFUNCTION()
+	void UpdateItemStock(int32 Value);
 	
 	UFUNCTION()
 	void ResetItemCount();

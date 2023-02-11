@@ -23,10 +23,15 @@ public:
 
 	void UpdateItemCount(int32 Value);
 
+	void UpdateItemStock(int32 Value);
+
 	void ResetItemCount();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UTextBlock* ItemCountText;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UTextBlock* ItemStockedText;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AStore* MyAStore;

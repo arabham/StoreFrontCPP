@@ -20,26 +20,32 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Default")
 	TObjectPtr<USceneComponent> Root;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
-	TArray<AItem*> StoreInventory;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
+	TArray<FS_ItemInfo> StoreInventory;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
-	TArray<AItem*> StockedItems;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
+	TArray<FS_ItemInfo> StockedItems;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
-	TArray<AActor*> StoreStoreInventory;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
+	TArray<FS_ItemInfo> StoreStoreInventory;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
-	TArray<AActor*> LockedItems;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
+	TArray<FS_ItemInfo> LockedItems;
 
 	// TODO: Remove need for blueprint access to make this unsigned
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
 	int32 Level;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
 	int32 Marks;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
 	int32 ItemCount;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
+	int32 StockCount;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
+	//AItem* Item;
 
 
 protected:
@@ -51,12 +57,12 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	void BuyItemFromStoreStoreInventory(int32 IWholePrice);
+	void BuyItemFromStoreStoreInventory(FS_ItemInfo ItemToBuy);
 
 	UFUNCTION(BlueprintCallable)
-	void AddItemStoreInventory(AItem* ItemToAdd);
+	void AddItemStoreInventory(FS_ItemInfo ItemToAdd);
 
 	UFUNCTION(BlueprintCallable)
-	void StockItem(AItem* ItemToStock);
+	void StockItem(FS_ItemInfo ItemToStock);
 
 };

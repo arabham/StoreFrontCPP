@@ -40,6 +40,13 @@ void AInGameHUD::UpdateItemCount(int32 Value)
 	}
 }
 
+void AInGameHUD::UpdateItemStock(int32 Value)
+{
+	if (StoreWidget)
+	{
+		StoreWidget->UpdateItemStock(Value);
+	}
+}
 void AInGameHUD::ResetItemCount()
 {
 	if (StoreWidget)
