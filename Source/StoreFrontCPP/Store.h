@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/SceneComponent.h"
-#include "Item.h"
+#include "S_ItemInfo.h"
 #include "Store.generated.h"
 
 UCLASS(Blueprintable, BlueprintType)
