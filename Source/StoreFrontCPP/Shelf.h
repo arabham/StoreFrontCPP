@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "ItemSpot.h"
+#include "S_ItemInfo.h"
 #include "Shelf.generated.h"
 
 UCLASS()
@@ -20,7 +20,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UItemSpot* ItemSpot = nullptr;
 
 public:	
 	// Called every frame
@@ -28,4 +27,10 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Mesh;
+
+	UPROPERTY(EditAnywhere)
+	UStaticMesh* ShelfItemMesh;
+
+	UFUNCTION(BlueprintCallable)
+	UStaticMesh* SetItemMeshInItemSpot(FS_ItemInfo Item);
 };

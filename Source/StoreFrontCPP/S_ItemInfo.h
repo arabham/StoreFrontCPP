@@ -37,6 +37,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Info")
 	TObjectPtr<UTexture> Image;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Info")
+	UStaticMesh* ItemMesh;
+
 };
 
 

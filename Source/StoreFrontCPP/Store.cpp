@@ -22,6 +22,18 @@ AStore::AStore()
 void AStore::BeginPlay()
 {
 	Super::BeginPlay();
+	if (ShelfClass)
+	{
+		AActor* FoundActor = UGameplayStatics::GetActorOfClass(GetWorld(), ShelfClass);
+
+		MyShelf = Cast<AShelf>(FoundActor);
+		if (MyShelf)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Shelf Found"))
+		}
+		else
+			UE_LOG(LogTemp, Warning, TEXT("Not Found"))
+	}
 }
 
 // Called every frame

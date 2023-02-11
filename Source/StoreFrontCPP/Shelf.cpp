@@ -11,7 +11,6 @@ AShelf::AShelf()
 
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	RootComponent = Mesh;
-	ItemSpot = CreateDefaultSubobject<UItemSpot>(FName("Item Spot"));
 }
 
 // Called when the game starts or when spawned
@@ -28,3 +27,17 @@ void AShelf::Tick(float DeltaTime)
 
 }
 
+UStaticMesh* AShelf::SetItemMeshInItemSpot(FS_ItemInfo Item)
+{
+	if (Item.ItemMesh)
+	{
+		ShelfItemMesh = Item.ItemMesh;
+
+		UE_LOG(LogTemp, Warning, TEXT("ITEM PLACED!"))
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("ITEM MESH NOT SET!"))
+	}
+	return ShelfItemMesh;
+}

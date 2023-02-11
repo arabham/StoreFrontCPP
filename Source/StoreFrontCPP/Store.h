@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Components/SceneComponent.h"
 #include "S_ItemInfo.h"
+#include "Shelf.h"
 #include "Store.generated.h"
 
 UCLASS(Blueprintable, BlueprintType)
@@ -44,8 +45,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
 	int32 StockCount;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Store Data")
-	//AItem* Item;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
+	AShelf* MyShelf;
 
 
 protected:
@@ -65,4 +67,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StockItem(FS_ItemInfo ItemToStock);
 
+	UPROPERTY(EditDefaultsOnly, Category = "Shelf")
+	TSubclassOf<AShelf> ShelfClass;
 };
