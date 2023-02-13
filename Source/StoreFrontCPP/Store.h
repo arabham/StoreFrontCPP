@@ -55,6 +55,9 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
+	UFUNCTION(BlueprintCallable)
+	void SetShelfRef();
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

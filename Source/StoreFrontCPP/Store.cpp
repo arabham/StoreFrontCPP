@@ -18,10 +18,8 @@ AStore::AStore()
 	StockCount = 0;
 }
 
-// Called when the game starts or when spawned
-void AStore::BeginPlay()
+void AStore::SetShelfRef()
 {
-	Super::BeginPlay();
 	if (ShelfClass)
 	{
 		AActor* FoundActor = UGameplayStatics::GetActorOfClass(GetWorld(), ShelfClass);
@@ -34,6 +32,13 @@ void AStore::BeginPlay()
 		else
 			UE_LOG(LogTemp, Warning, TEXT("Not Found"))
 	}
+}
+
+// Called when the game starts or when spawned
+void AStore::BeginPlay()
+{
+	Super::BeginPlay();
+
 }
 
 // Called every frame
