@@ -7,6 +7,7 @@
 #include "Components/SceneComponent.h"
 #include "S_ItemInfo.h"
 #include "Shelf.h"
+#include "Register.h"
 #include "Store.generated.h"
 
 UCLASS(Blueprintable, BlueprintType)
@@ -49,15 +50,15 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
 	AShelf* MyShelf;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Store Data")
+	ARegister* MyRegister;
+
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
-	UFUNCTION(BlueprintCallable)
-	void SetShelfRef();
-
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -70,6 +71,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StockItem(FS_ItemInfo ItemToStock);
 
-	UPROPERTY(EditDefaultsOnly, Category = "Shelf")
+	UPROPERTY(EditDefaultsOnly, Category = "Store Objects")
 	TSubclassOf<AShelf> ShelfClass;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Store Objects")
+	TSubclassOf<ARegister> RegisterClass;
+
+	UFUNCTION(BlueprintCallable)
+	void SetShelfRef();
+
+	UFUNCTION(BlueprintCallable)
+	void SetRegisterRef();
 };

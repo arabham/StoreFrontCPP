@@ -18,22 +18,6 @@ AStore::AStore()
 	StockCount = 0;
 }
 
-void AStore::SetShelfRef()
-{
-	if (ShelfClass)
-	{
-		AActor* FoundActor = UGameplayStatics::GetActorOfClass(GetWorld(), ShelfClass);
-
-		MyShelf = Cast<AShelf>(FoundActor);
-		if (MyShelf)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("Shelf Found"))
-		}
-		else
-			UE_LOG(LogTemp, Warning, TEXT("Not Found"))
-	}
-}
-
 // Called when the game starts or when spawned
 void AStore::BeginPlay()
 {
@@ -86,4 +70,36 @@ void AStore::StockItem(FS_ItemInfo ItemToStock)
 	}
 	else
 		UE_LOG(LogTemp, Warning, TEXT("NO ITEM TO STOCK!"))
+}
+
+void AStore::SetShelfRef()
+{
+	if (ShelfClass)
+	{
+		AActor* FoundActor = UGameplayStatics::GetActorOfClass(GetWorld(), ShelfClass);
+
+		MyShelf = Cast<AShelf>(FoundActor);
+		if (MyShelf)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Shelf Found"))
+		}
+		else
+			UE_LOG(LogTemp, Warning, TEXT("Shelf Not Found"))
+	}
+}
+
+void AStore::SetRegisterRef()
+{
+	if (RegisterClass)
+	{
+		AActor* FoundActor = UGameplayStatics::GetActorOfClass(GetWorld(), RegisterClass);
+
+		MyRegister = Cast<ARegister>(FoundActor);
+		if (MyRegister)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Register Found"))
+		}
+		else
+			UE_LOG(LogTemp, Warning, TEXT("Register Not Found"))
+	}
 }
